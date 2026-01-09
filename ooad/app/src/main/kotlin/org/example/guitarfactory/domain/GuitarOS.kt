@@ -1,4 +1,4 @@
-package org.example.guitarfactory
+package org.example.guitarfactory.domain
 
 sealed class GuitarOS(val name: String) {
     object Analog : GuitarOS("Analog")

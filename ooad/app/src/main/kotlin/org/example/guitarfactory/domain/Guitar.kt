@@ -1,4 +1,4 @@
-package org.example.guitarfactory
+package org.example.guitarfactory.domain
 
 import java.util.UUID
 
