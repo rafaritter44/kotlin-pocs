@@ -21,8 +21,10 @@ class InventoryTest {
         Inventory.add(guitar1)
         Inventory.add(guitar2)
         println(Inventory.all)
+
         Inventory.remove(guitar1)
         println(Inventory.all)
+
         println(Inventory.get(guitar1.id))
         println(Inventory.get(guitar2.id))
     }
