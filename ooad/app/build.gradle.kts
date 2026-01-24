@@ -19,6 +19,7 @@ repositories {
 }
 
 dependencies {
+    implementation("com.google.code.gson:gson:2.13.2")
     // Use the Kotlin JUnit 5 integration.
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 
