@@ -2,6 +2,7 @@ package org.example.notetaking
 
 import com.google.gson.Gson
 import java.io.File
+import java.time.Instant
 import java.util.UUID
 
 object NoteSaver {
@@ -21,6 +22,7 @@ object NoteSaver {
         val note = notes[id] ?: return false
         note.title = title
         note.content = content
+        note.updatedAt = Instant.now()
         return true
     }
     fun save() {
