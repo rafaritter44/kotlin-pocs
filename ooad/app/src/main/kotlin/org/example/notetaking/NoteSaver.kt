@@ -25,6 +25,9 @@ object NoteSaver {
         note.updatedAt = Instant.now()
         return true
     }
+    fun viewAll(): String {
+        return gson.toJson(notes)
+    }
     fun save() {
         val json = gson.toJson(notes)
         db.writeText(json)
