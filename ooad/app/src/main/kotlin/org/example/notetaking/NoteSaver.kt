@@ -1,9 +1,13 @@
 package org.example.notetaking
 
+import com.google.gson.Gson
+import java.io.File
 import java.util.UUID
 
 object NoteSaver {
     private val notes = mutableMapOf<UUID, Note>()
+    private val db = File("notes.db")
+    private val gson = Gson()
 
     fun add(title: String): UUID {
         val note = Note(title = title)
@@ -18,5 +22,16 @@ object NoteSaver {
         note.title = title
         note.content = content
         return true
+    }
+    fun save() {
+        val json = gson.toJson(notes)
+        db.writeText(json)
+    }
+    fun sync() {
+        if (!db.exists()) return
+        db.readLines()
+            .filter { it.isNotBlank() }
+            .map { gson.fromJson(it, Note::class.java) }
+            .forEach { notes[it.id] = it }
     }
 }
