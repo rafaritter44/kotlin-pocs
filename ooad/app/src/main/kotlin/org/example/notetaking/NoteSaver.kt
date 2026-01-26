@@ -18,7 +18,7 @@ object NoteSaver {
     fun delete(id: UUID) {
         notes.remove(id)
     }
-    fun edit(id: UUID, title: String?, content: String?): Boolean {
+    fun edit(id: UUID, title: String? = null, content: String? = null): Boolean {
         if (title == null && content == null) return false
         val note = notes[id] ?: return false
         title?.let { note.title = it }
