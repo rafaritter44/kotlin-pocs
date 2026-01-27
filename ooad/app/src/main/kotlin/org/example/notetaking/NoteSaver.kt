@@ -34,7 +34,7 @@ object NoteSaver {
     }
     fun sync() {
         if (!db.exists()) return
-        val notes = gson.fromJson(db.readText(), notes::class.java)
-        this.notes.putAll(notes)
+        val syncNotes = gson.fromJson(db.readText(), notes::class.java)
+        notes.putAll(syncNotes)
     }
 }
