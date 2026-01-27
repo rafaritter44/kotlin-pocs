@@ -1,7 +1,6 @@
 package org.example.notetaking
 
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import java.io.File
 import java.util.UUID
 
@@ -9,7 +8,6 @@ object NoteSaver {
     private val notes = mutableMapOf<UUID, Note>()
     private val db = File("notes.db")
     private val gson = Gson()
-    private val notesType = object : TypeToken<MutableMap<UUID, Note>>() {}.type
 
     fun add(title: String): UUID {
         val note = Note(title = title)
@@ -36,7 +34,7 @@ object NoteSaver {
     }
     fun sync() {
         if (!db.exists()) return
-        val notes = gson.fromJson<MutableMap<UUID, Note>>(db.readText(), notesType)
+        val notes = gson.fromJson(db.readText(), notes::class.java)
         this.notes.putAll(notes)
     }
 }
