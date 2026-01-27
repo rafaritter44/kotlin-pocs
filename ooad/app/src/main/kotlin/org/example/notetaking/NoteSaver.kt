@@ -3,7 +3,6 @@ package org.example.notetaking
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.File
-import java.time.Instant
 import java.util.UUID
 
 object NoteSaver {
@@ -25,7 +24,7 @@ object NoteSaver {
         val note = notes[id] ?: return false
         title?.let { note.title = it }
         content?.let { note.content = it }
-        note.updatedAt = Instant.now()
+        note.updatedAt = System.currentTimeMillis()
         return true
     }
     fun viewAll(): String {
