@@ -3,7 +3,7 @@ package org.example.calendar
 import java.time.Duration
 import java.time.LocalDateTime
 
-class CalendarSystem {
+object CalendarSystem {
     private val calendars = mutableMapOf<String, Calendar>()
 
     fun getCalendar(user: String): Calendar =
