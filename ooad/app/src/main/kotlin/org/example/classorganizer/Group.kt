@@ -1,7 +1,7 @@
 package org.example.classorganizer
 
 data class Group(
-    val id: Long,
+    val id: Int,
     val students: MutableList<Student> = mutableListOf(),
 ) {
     fun totalSkill(): Int = students.sumOf { it.skill }
